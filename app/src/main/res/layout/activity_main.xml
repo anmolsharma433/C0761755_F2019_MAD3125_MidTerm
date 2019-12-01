@@ -91,14 +91,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="153dp"
-            android:layout_marginTop="89dp"
+            android:layout_marginTop="32dp"
             android:layout_marginEnd="191dp"
             android:layout_marginBottom="132dp"
             android:text="Result"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+            app:layout_constraintTop_toBottomOf="@+id/etRrsp" />
 
         <TextView
             android:id="@+id/txtFname"

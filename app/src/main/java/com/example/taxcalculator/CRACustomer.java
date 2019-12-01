@@ -9,11 +9,12 @@ public class CRACustomer{
     private float rrsp;
 
     //Constructor
-    //test commit
 
-    public CRACustomer(String firstName, String lastName) {
+
+    public CRACustomer(String firstName, String lastName,float rrsp) {
         this.FirstName = firstName;
         this.LastName = lastName;
+        this.rrsp = rrsp;
     }
 
     //Functions
@@ -25,9 +26,17 @@ public class CRACustomer{
     }
 
     // Function for rrsp calculation
-    public void rrsp(float grossincome,float rrsp)
+    public float rrsp()
     {
-        float rrspcalculation;
+        float carryforwardrrsp
+        float expectedrrsp = (grossincome * (18/100));
+        float maxrrsp =18000;
+        if (expectedrrsp > 18000)
+        {
+            carryforwardrrsp = expectedrrsp - maxrrsp;
+            return carryforwardrrsp;
+        }
+        return rrspcalculation;
     }
 
 
