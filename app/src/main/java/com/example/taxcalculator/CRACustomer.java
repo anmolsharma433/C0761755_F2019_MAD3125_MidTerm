@@ -20,8 +20,8 @@ public class CRACustomer{
     //Function for fullname + formatting
     public String Fullname()
     {
-        String fname = getFirstName().substring(0,1).toUpperCase() + getFirstName().substring(1);
-        return getLastName().toUpperCase() + "," + fname;
+        String fname = FirstName.substring(0,1).toUpperCase() + FirstName.substring(1);
+        return LastName.toUpperCase() + "," + fname;
     }
 
     // Function for rrsp calculation

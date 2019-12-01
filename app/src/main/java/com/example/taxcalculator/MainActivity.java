@@ -23,12 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private Button result;
 
     //object od cra customer
-    CRACustomer cra;
 
-    public MainActivity() {
-        ;
-        cra = new CRACustomer(fname.getText().toString(),lanme.getText().toString());
-    }
 
 
     @Override
@@ -45,12 +40,13 @@ public class MainActivity extends AppCompatActivity {
         female = findViewById(R.id.rbFemale);
         other = findViewById(R.id.rbOther);
         result = findViewById(R.id.btnResult);
-        CRACustomer cra = new CRACustomer(fname.getText().toString(),lanme.getText().toString());
+        final CRACustomer cra = new CRACustomer(fname.getText().toString(),lanme.getText().toString());
         result.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            cra.Fullname();
-           // System.out.println(cra.Fullname());
+                CRACustomer cra = new CRACustomer(fname.getText().toString(),lanme.getText().toString());
+           //cra.Fullname();
+            System.out.println(cra.Fullname());
 
             }
         });
