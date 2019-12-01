@@ -18,10 +18,12 @@
             android:id="@+id/txtAge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="46dp"
             android:text="Age"
             android:textSize="18sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/etDate"
-            tools:layout_editor_absoluteX="50dp" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtLname" />
 
         <TextView
             android:id="@+id/textView"
@@ -39,15 +41,20 @@
             android:id="@+id/etGender"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="51dp"
             android:text="Gender"
-            tools:layout_editor_absoluteX="50dp"
-            tools:layout_editor_absoluteY="521dp" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etGrossIncome" />
 
         <RadioGroup
+            android:id="@+id/radioGroup"
             android:layout_width="133dp"
             android:layout_height="87dp"
-            tools:layout_editor_absoluteX="175dp"
-            tools:layout_editor_absoluteY="505dp">
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="124dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etGrossIncome">
 
             <RadioButton
                 android:id="@+id/rbMale"
@@ -72,88 +79,112 @@
             android:id="@+id/txtLname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="35dp"
             android:text="Lastname"
             android:textSize="18sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/etLname"
-            tools:layout_editor_absoluteX="50dp" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtFname" />
 
         <Button
             android:id="@+id/btnResult"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="153dp"
+            android:layout_marginTop="89dp"
+            android:layout_marginEnd="191dp"
+            android:layout_marginBottom="132dp"
             android:text="Result"
-            tools:layout_editor_absoluteX="153dp"
-            tools:layout_editor_absoluteY="681dp" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
         <TextView
             android:id="@+id/txtFname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="173dp"
             android:text="Firstname"
             android:textSize="18sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/etFname"
-            tools:layout_editor_absoluteX="50dp" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/etLname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="32dp"
             android:ems="10"
             android:inputType="textPersonName"
-            tools:layout_editor_absoluteX="188dp"
-            tools:layout_editor_absoluteY="222dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etFname" />
 
         <EditText
             android:id="@+id/etFname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="79dp"
+            android:layout_marginEnd="32dp"
             android:ems="10"
             android:inputType="textPersonName"
-            tools:layout_editor_absoluteX="188dp"
-            tools:layout_editor_absoluteY="163dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <TextView
             android:id="@+id/txtSin"
             android:layout_width="41dp"
             android:layout_height="25dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="56dp"
             android:text="Sin"
-            tools:layout_editor_absoluteX="50dp"
-            tools:layout_editor_absoluteY="382dp" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtAge" />
 
         <EditText
             android:id="@+id/etDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="32dp"
             android:ems="10"
             android:inputType="date"
-            tools:layout_editor_absoluteX="188dp"
-            tools:layout_editor_absoluteY="292dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etLname" />
 
         <TextView
-            android:id="@+id/etGrossIncome"
+            android:id="@+id/txtGrossIncome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="43dp"
+            android:layout_marginTop="43dp"
             android:text="Gross Income"
-            tools:layout_editor_absoluteX="43dp"
-            tools:layout_editor_absoluteY="450dp" />
-
-        <EditText
-            android:id="@+id/editText8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            tools:layout_editor_absoluteX="188dp"
-            tools:layout_editor_absoluteY="437dp" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtSin" />
 
         <EditText
             android:id="@+id/etSin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="39dp"
+            android:layout_marginEnd="33dp"
             android:ems="10"
             android:inputType="textPersonName"
-            tools:layout_editor_absoluteX="183dp"
-            tools:layout_editor_absoluteY="370dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etDate" />
+
+        <EditText
+            android:id="@+id/etGrossIncome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="17dp"
+            android:layout_marginEnd="33dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etSin" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
