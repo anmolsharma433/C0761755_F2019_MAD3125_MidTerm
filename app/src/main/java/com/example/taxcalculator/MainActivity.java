@@ -44,9 +44,8 @@ public class MainActivity extends AppCompatActivity {
         result.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CRACustomer cra = new CRACustomer(fname.getText().toString(),lanme.getText().toString(),Float.parseFloat(rrsp.getText().toString()));
-                System.out.println(cra.Fullname());
-                System.out.println(cra.rrsp());
+                Double Dgrossincome = Dou
+                CRACustomer cra = new CRACustomer(fname.getText().toString(),lanme.getText().toString(),)
 
             }
         });

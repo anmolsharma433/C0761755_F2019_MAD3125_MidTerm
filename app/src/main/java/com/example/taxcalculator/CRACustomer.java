@@ -10,17 +10,17 @@ public class CRACustomer{
     private int Sin;
     private Double grossincome;
     private Double rrspContributed;
-    private Double rrsp;
 
-    //Constructor
-
-
-    public CRACustomer(String firstName, String lastName,Double grossincome,Double rrsp) {
+    public CRACustomer(String firstName, String lastName, Double grossincome, Double rrspContributed) {
         this.FirstName = firstName;
         this.LastName = lastName;
         this.grossincome = grossincome;
-        this.rrsp = rrsp;
+        this.rrspContributed = rrspContributed;
     }
+//Constructor
+
+
+
 
     //Functions
 
@@ -134,16 +134,16 @@ public class CRACustomer{
     public Double rrsp()
     {
         Double maxrrsp = grossincome * .0018;
-        Double CFrrsp
+        Double CFrrsp;
         if(rrspContributed >= maxrrsp)
         {
             Double RRSP = maxrrsp - rrspContributed;
+            CFrrsp = RRSP;
             return maxrrsp;
         }
         else {
             return rrspContributed;
         }
-
     }
 
 
@@ -185,11 +185,11 @@ public class CRACustomer{
         this.grossincome = grossincome;
     }
 
-    public Double getRrsp() {
-        return rrsp;
+    public Double getRrspContributed() {
+        return rrspContributed;
     }
 
-    public void setRrsp(Double rrsp) {
-        this.rrsp = rrsp;
+    public void setRrspContributed(Double rrspContributed) {
+        this.rrspContributed = rrspContributed;
     }
 }
