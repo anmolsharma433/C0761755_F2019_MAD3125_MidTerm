@@ -1,6 +1,9 @@
 package com.example.taxcalculator;
 
-public class CRACustomer{
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class CRACustomer implements Parcelable {
     private String FirstName;
     private String LastName;
     private String FullName;
@@ -25,19 +28,9 @@ public class CRACustomer{
         return LastName.toUpperCase() + "," + fname;
     }
 
-    // Function for rrsp calculation
-    public float rrsp()
-    {
-        float carryforwardrrsp
-        float expectedrrsp = (grossincome * (18/100));
-        float maxrrsp =18000;
-        if (expectedrrsp > 18000)
-        {
-            carryforwardrrsp = expectedrrsp - maxrrsp;
-            return carryforwardrrsp;
-        }
-        return rrspcalculation;
-    }
+    // Function for CPP calculation
+    public void func
+
 
 
     //Getter And Setters
@@ -80,5 +73,15 @@ public class CRACustomer{
 
     public void setRrsp(float rrsp) {
         this.rrsp = rrsp;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+
     }
 }

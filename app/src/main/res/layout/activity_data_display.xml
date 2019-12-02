@@ -11,61 +11,188 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Button"
-        tools:layout_editor_absoluteX="153dp"
-        tools:layout_editor_absoluteY="668dp" />
+        tools:layout_editor_absoluteX="155dp"
+        tools:layout_editor_absoluteY="816dp" />
 
     <TextView
         android:id="@+id/txtFullname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
+        android:layout_marginStart="36dp"
         android:text="Full Name"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="123dp" />
+        tools:layout_editor_absoluteY="64dp" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/etDSin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="98dp"
         android:text="sin"
         android:textSize="18sp"
-        tools:layout_editor_absoluteX="50dp"
-        tools:layout_editor_absoluteY="299dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtage" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/etDsin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="44dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
-        tools:layout_editor_absoluteX="180dp"
-        tools:layout_editor_absoluteY="289dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etage" />
 
     <EditText
         android:id="@+id/etFullname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="40dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="55dp" />
+
+    <TextView
+        android:id="@+id/txtdGrossincome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="54dp"
+        android:text="Gross Income"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etDSin" />
+
+    <TextView
+        android:id="@+id/txtage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="35dp"
+        android:text="Age"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtFullname" />
+
+    <EditText
+        android:id="@+id/etage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="46dp"
+        android:editable="false"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etFullname" />
+
+    <EditText
+        android:id="@+id/etDGrossIncome"
+        android:layout_width="209dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="31dp"
+        android:layout_marginEnd="48dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etDsin" />
+
+    <TextView
+        android:id="@+id/txtDFederaltax"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="50dp"
+        android:text="Federal Tax"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtdGrossincome" />
+
+    <EditText
+        android:id="@+id/etDFederaltax"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="46dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etDGrossIncome" />
+
+    <TextView
+        android:id="@+id/txtProvincaltax"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="44dp"
+        android:text="Provincal Tax"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtDFederaltax" />
+
+    <EditText
+        android:id="@+id/etDProvincaltax"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="34dp"
+        android:layout_marginEnd="46dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etDFederaltax" />
+
+    <TextView
+        android:id="@+id/txtDCppEi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="52dp"
+        android:text="CPP/EI premiums"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtProvincaltax" />
+
+    <EditText
+        android:id="@+id/etDCppEi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
         android:layout_marginEnd="44dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="113dp" />
+        app:layout_constraintTop_toBottomOf="@+id/etDProvincaltax" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/txtDTotaltax"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="åge"
-        tools:layout_editor_absoluteX="55dp"
-        tools:layout_editor_absoluteY="390dp" />
+        android:text="Total Tax"
+        tools:layout_editor_absoluteX="31dp"
+        tools:layout_editor_absoluteY="577dp" />
+
+    <EditText
+        android:id="@+id/etDTotaltax"
+        android:layout_width="209dp"
+        android:layout_height="37dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="155dp"
+        tools:layout_editor_absoluteY="573dp" />
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/txtDAfterTaxIncome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="175dp"
-        tools:layout_editor_absoluteY="396dp" />
+        android:text="After Tax Income"
+        tools:layout_editor_absoluteX="35dp"
+        tools:layout_editor_absoluteY="655dp" />
+
+    <EditText
+        android:id="@+id/etDAfterTaxIncome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="156dp"
+        tools:layout_editor_absoluteY="638dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
