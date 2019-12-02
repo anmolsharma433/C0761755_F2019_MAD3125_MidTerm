@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText dob;
     private EditText sin;
     private EditText grossincome;
-    private EditText rrsp;
+    private EditText crrsp;
     private RadioButton male;
     private RadioButton female;
     private RadioButton other;
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         dob = findViewById(R.id.etDate);
         sin = findViewById(R.id.etSin);
         grossincome = findViewById(R.id.etGrossIncome);
-        rrsp = findViewById(R.id.etRrsp);
+        crrsp = findViewById(R.id.etRrsp);
         male = findViewById(R.id.rbMale);
         female = findViewById(R.id.rbFemale);
         other = findViewById(R.id.rbOther);
@@ -44,13 +44,13 @@ public class MainActivity extends AppCompatActivity {
         result.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Double Dgrossincome = Double.parseDouble(grossincome.getTextColors().toString());
-                Double Drssp = Double.parseDouble(rrsp.getText().toString());
+                Double Dgrossincome = Double.parseDouble(grossincome.getText().toString());
+                Double Drssp = Double.parseDouble(crrsp.getText().toString());
                 CRACustomer cra = new CRACustomer(fname.getText().toString(),lanme.getText().toString(),Dgrossincome,Drssp);
                 System.out.println(cra.Fullname());
                 System.out.println("Gross Income = " + cra.getGrossincome());
                 System.out.println("EI = " + cra.EI());
-                System.out.println("Federal tax = " + cra.FederalTax());
+                System.out.println("Federal tax = " + cra.federalTax());
                 System.out.println("CPP = "+ cra.CPP());
                 System.out.println("Provincal tax = " + cra.provincalTax());
 
