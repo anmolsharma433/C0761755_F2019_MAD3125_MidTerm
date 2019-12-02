@@ -47,8 +47,19 @@ public class CRACustomer{
     // Function for Employer insurance
     public Double EI()
     {
+        if(grossincome >53100)
+        {
+            Double applicablegrossincome = grossincome - 53100;
+            Double EI = applicablegrossincome * 0.0162;
+            return EI;
 
+        }
+        else{
+            Double EI = grossincome * 0.0162;
+            return  EI;
+        }
     }
+
 
 
 
