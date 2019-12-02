@@ -141,7 +141,7 @@
         android:layout_marginEnd="24dp"
         android:ems="10"
         android:fontFamily="monospace"
-        android:hint="Enter Your FIrstName"
+        android:hint="Enter Your FirstName"
         android:inputType="textPersonName"
         android:textAlignment="viewStart"
         android:textColor="#EB0F0F0F"
@@ -191,6 +191,7 @@
         android:layout_marginEnd="24dp"
         android:ems="10"
         android:fontFamily="monospace"
+        android:hint="Enter Your SIN No."
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etDate" />
@@ -204,7 +205,9 @@
         android:drawableLeft="@drawable/ic_Dollar"
         android:ems="10"
         android:fontFamily="monospace"
+        android:hint="Enter Your Gross Income"
         android:inputType="textPersonName"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etSin" />
 
