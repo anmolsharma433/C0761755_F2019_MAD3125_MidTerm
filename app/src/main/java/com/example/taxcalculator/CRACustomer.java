@@ -6,7 +6,7 @@ import android.os.Parcelable;
 import java.text.NumberFormat;
 import java.util.Locale;
 
-public class CRACustomer{
+public class CRACustomer implements Parcelable{
     private String FirstName;
     private String LastName;
     private int Sin;
@@ -22,6 +22,35 @@ public class CRACustomer{
         this.rrspContributed = rrspContributed;
     }
     //   ************ Functions **************
+
+    protected CRACustomer(Parcel in) {
+        FirstName = in.readString();
+        LastName = in.readString();
+        Sin = in.readInt();
+        if (in.readByte() == 0) {
+            grossincome = null;
+        } else {
+            grossincome = in.readDouble();
+        }
+        if (in.readByte() == 0) {
+            rrspContributed = null;
+        } else {
+            rrspContributed = in.readDouble();
+        }
+        mrssp = in.readDouble();
+    }
+
+    public static final Creator<CRACustomer> CREATOR = new Creator<CRACustomer>() {
+        @Override
+        public CRACustomer createFromParcel(Parcel in) {
+            return new CRACustomer(in);
+        }
+
+        @Override
+        public CRACustomer[] newArray(int size) {
+            return new CRACustomer[size];
+        }
+    };
 
     //Function for fullname + formatting
     public String Fullname()
@@ -265,5 +294,30 @@ public class CRACustomer{
 
         return val;
 
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(FirstName);
+        dest.writeString(LastName);
+        dest.writeInt(Sin);
+        if (grossincome == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeDouble(grossincome);
+        }
+        if (rrspContributed == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeDouble(rrspContributed);
+        }
+        dest.writeDouble(mrssp);
     }
 }

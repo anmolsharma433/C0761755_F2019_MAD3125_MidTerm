@@ -2,12 +2,18 @@ package com.example.taxcalculator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
     private EditText fname;
@@ -21,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
     private RadioButton female;
     private RadioButton other;
     private Button result;
+    final Calendar calendar = Calendar.getInstance();
+    //DatePickerDialog datePickerDialog;
 
     //object od cra customer
 
@@ -35,6 +43,10 @@ public class MainActivity extends AppCompatActivity {
         View decorView = getWindow().getDecorView();
         int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
         decorView.setSystemUiVisibility(uiOptions);
+
+
+
+
 
         fname = findViewById(R.id.etFname);
         lanme = findViewById(R.id.etLname);
@@ -64,10 +76,14 @@ public class MainActivity extends AppCompatActivity {
                 System.out.println("Federal tax = " + cra.federalTax());
 
                 System.out.println(" total tax payed "+cra.totaltaxPayed());
+                Intent intent = new Intent(MainActivity.this,DataDisplay.class);
+                intent.putExtra("data",cra);
+                startActivity(intent);
 
 
 
             }
         });
     }
+
 }
