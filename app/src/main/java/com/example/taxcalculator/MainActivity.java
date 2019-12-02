@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
                 System.out.println("Provincal tax = " + cra.provincialTax());
                 System.out.println("Federal tax = " + cra.federalTax());
 
-                //System.out.println(" total tax payed "+cra.totaltaxPayed());
+                System.out.println(" total tax payed "+cra.totaltaxPayed());
 
 
 

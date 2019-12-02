@@ -217,7 +217,7 @@ public class CRACustomer{
     //Dunction for Total tax payed
     public Double totaltaxPayed()
     {
-        Double TTP = provincialTax();
+        Double TTP = federalTax() + provincialTax();
         return  TTP;
     }
 
