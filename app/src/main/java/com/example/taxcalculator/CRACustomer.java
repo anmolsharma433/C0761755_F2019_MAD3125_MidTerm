@@ -22,6 +22,7 @@ public class CRACustomer{
     }
 
     //Functions
+
     //Function for fullname + formatting
     public String Fullname()
     {
@@ -57,6 +58,40 @@ public class CRACustomer{
         else{
             Double EI = grossincome * 0.0162;
             return  EI;
+        }
+    }
+
+    //Function for Federal tax
+    public Double FederalTax()
+    {
+        Double FT;
+        if(grossincome <= 12069)
+        {
+            return 0.0;
+        }
+        else if(grossincome <= 47630)
+        {
+            FT = grossincome * 0.015;
+            return FT;
+        }
+        else if(grossincome <= 95259)
+        {
+            FT = grossincome * .2050;
+            return FT;
+        }
+        else if (grossincome <= 147667)
+        {
+            FT = grossincome * .0026;
+            return FT;
+        }
+        else if (grossincome <= 210371)
+        {
+            FT = grossincome * .0029;
+            return FT;
+        }
+        else {
+            FT = grossincome * .0033;
+            return FT;
         }
     }
 
