@@ -3,20 +3,21 @@ package com.example.taxcalculator;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class CRACustomer implements Parcelable {
+public class CRACustomer{
     private String FirstName;
     private String LastName;
     private String FullName;
     private int Sin;
-    private float grossincome;
-    private float rrsp;
+    private Double grossincome;
+    private Double rrsp;
 
     //Constructor
 
 
-    public CRACustomer(String firstName, String lastName,float rrsp) {
+    public CRACustomer(String firstName, String lastName,Double grossincome,Double rrsp) {
         this.FirstName = firstName;
         this.LastName = lastName;
+        this.grossincome = grossincome;
         this.rrsp = rrsp;
     }
 
@@ -29,7 +30,22 @@ public class CRACustomer implements Parcelable {
     }
 
     // Function for CPP calculation
-    public void func
+    public Double CPP()
+    {
+        if (grossincome > 57400)
+        {
+            Double applicablegrossincome = grossincome - 57400;
+            Double finalcpp = applicablegrossincome * 0.0510;
+            return finalcpp;
+        }
+        else{
+            Double finalcpp = grossincome * 0.0150;
+            return finalcpp;
+        }
+    }
+
+    // Function for Employer insurance
+
 
 
 
@@ -59,29 +75,19 @@ public class CRACustomer implements Parcelable {
         Sin = sin;
     }
 
-    public float getGrossincome() {
+    public Double getGrossincome() {
         return grossincome;
     }
 
-    public void setGrossincome(float grossincome) {
+    public void setGrossincome(Double grossincome) {
         this.grossincome = grossincome;
     }
 
-    public float getRrsp() {
+    public Double getRrsp() {
         return rrsp;
     }
 
-    public void setRrsp(float rrsp) {
+    public void setRrsp(Double rrsp) {
         this.rrsp = rrsp;
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-
     }
 }
