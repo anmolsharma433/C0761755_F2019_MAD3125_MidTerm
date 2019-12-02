@@ -9,25 +9,19 @@ import java.util.Locale;
 public class CRACustomer{
     private String FirstName;
     private String LastName;
-    private String FullName;
     private int Sin;
     private Double grossincome;
     private Double rrspContributed;
     double mrssp;
 
-
+    //Constructor
     public CRACustomer(String firstName, String lastName, Double grossincome, Double rrspContributed) {
         this.FirstName = firstName;
         this.LastName = lastName;
         this.grossincome = grossincome;
         this.rrspContributed = rrspContributed;
     }
-//Constructor
-
-
-
-
-    //Functions
+    //   ************ Functions **************
 
     //Function for fullname + formatting
     public String Fullname()
@@ -221,12 +215,7 @@ public class CRACustomer{
         return  TTP;
     }
 
-
-
-
-
-
-    //Getter And Setters
+    //    ************** Getter And Setters *****************
 
     public String getFirstName() {
         return FirstName;

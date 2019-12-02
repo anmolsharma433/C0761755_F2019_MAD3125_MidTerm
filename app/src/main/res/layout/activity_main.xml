@@ -7,36 +7,35 @@
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="0dp">
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+    android:id="@+id/constraintLayout"
+        android:background="@drawable/background2"
         tools:context=".MainActivity"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="26dp">
-        <TextView
-            android:id="@+id/txtAge"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
-            android:layout_marginTop="46dp"
-            android:text="Date Of Birth"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtLname" />
+        tools:layout_editor_absoluteY="-2dp">
+
+
+    <TextView
+        android:id="@+id/txtAge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="53dp"
+        android:fontFamily="monospace"
+        android:text="Date Of Birth"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtLname" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="52dp"
+            android:layout_marginTop="60dp"
+            android:fontFamily="monospace"
+            android:lineSpacingExtra="30sp"
             android:text="Tax Calculator"
             android:textAlignment="center"
             android:textSize="24sp"
@@ -44,17 +43,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/etGender"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="48dp"
-            android:layout_marginTop="36dp"
-            android:text="Gender"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etGrossIncome" />
+    <TextView
+        android:id="@+id/etGender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="73dp"
+        android:fontFamily="monospace"
+        android:text="Gender"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtGrossIncome" />
 
-        <RadioGroup
+    <RadioGroup
             android:id="@+id/radioGroup"
             android:layout_width="133dp"
             android:layout_height="87dp"
@@ -82,16 +83,16 @@
                 android:text="Other" />
         </RadioGroup>
 
-        <TextView
-            android:id="@+id/txtLname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
-            android:layout_marginTop="35dp"
-            android:text="Lastname"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtFname" />
+    <TextView
+        android:id="@+id/txtLname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:fontFamily="monospace"
+        android:text="Lastname"
+        android:textSize="20sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/etLname"
+        app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/btnResult"
@@ -108,114 +109,128 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etRrsp" />
 
-        <TextView
-            android:id="@+id/txtFname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
-            android:layout_marginTop="173dp"
-            android:text="Firstname"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/txtFname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:fontFamily="monospace"
+        android:text="Firstname"
+        android:textSize="20sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/etFname"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <EditText
-            android:id="@+id/etLname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
-            android:layout_marginEnd="32dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etFname" />
+    <EditText
+        android:id="@+id/etLname"
+        android:layout_width="230dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:ems="10"
+        android:fontFamily="monospace"
+        android:hint="Enter Your LastName"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etFname" />
 
-        <EditText
-            android:id="@+id/etFname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="79dp"
-            android:layout_marginEnd="32dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+    <EditText
+        android:id="@+id/etFname"
+        android:layout_width="230dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="79dp"
+        android:layout_marginEnd="24dp"
+        android:ems="10"
+        android:fontFamily="monospace"
+        android:hint="Enter Your FIrstName"
+        android:inputType="textPersonName"
+        android:textAlignment="viewStart"
+        android:textColor="#EB0F0F0F"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-        <TextView
-            android:id="@+id/txtSin"
-            android:layout_width="41dp"
-            android:layout_height="25dp"
-            android:layout_marginStart="50dp"
-            android:layout_marginTop="56dp"
-            android:text="Sin"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtAge" />
+    <TextView
+        android:id="@+id/txtSin"
+        android:layout_width="41dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="50dp"
+        android:fontFamily="monospace"
+        android:text="Sin"
+        android:textSize="20sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/etSin"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <EditText
-            android:id="@+id/etDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:layout_marginEnd="32dp"
-            android:ems="10"
-            android:inputType="date"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etLname" />
+    <EditText
+        android:id="@+id/etDate"
+        android:layout_width="230dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:ems="10"
+        android:fontFamily="monospace"
+        android:hint="Enter Your DOB"
+        android:inputType="date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etLname" />
 
-        <TextView
-            android:id="@+id/txtGrossIncome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="43dp"
-            android:layout_marginTop="43dp"
-            android:text="Gross Income"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtSin" />
+    <TextView
+        android:id="@+id/txtGrossIncome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:fontFamily="monospace"
+        android:text="Gross Income"
+        android:textSize="20sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/etGrossIncome"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <EditText
-            android:id="@+id/etSin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="39dp"
-            android:layout_marginEnd="33dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etDate" />
+    <EditText
+        android:id="@+id/etSin"
+        android:layout_width="230dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:ems="10"
+        android:fontFamily="monospace"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etDate" />
 
-        <EditText
-            android:id="@+id/etGrossIncome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="17dp"
-            android:layout_marginEnd="33dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etSin" />
+    <EditText
+        android:id="@+id/etGrossIncome"
+        android:layout_width="230dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:drawableLeft="@drawable/ic_Dollar"
+        android:ems="10"
+        android:fontFamily="monospace"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etSin" />
 
-        <TextView
-            android:id="@+id/txtRrsp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="61dp"
-            android:layout_marginTop="102dp"
-            android:text="RRSP"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etGender" />
+    <TextView
+        android:id="@+id/txtRrsp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:fontFamily="monospace"
+        android:text="RRSP"
+        android:textSize="20sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/etRrsp"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <EditText
-            android:id="@+id/etRrsp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="36dp"
-            android:layout_marginEnd="39dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+    <EditText
+        android:id="@+id/etRrsp"
+        android:layout_width="230dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:ems="10"
+        android:fontFamily="monospace"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
