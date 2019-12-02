@@ -63,7 +63,7 @@ public class CRACustomer{
     }
 
     //Function for Federal tax
-    public Double FederalTax()
+    public Double federalTax()
     {
         Double FT;
         if(grossincome <= 12069)
@@ -151,6 +151,13 @@ public class CRACustomer{
     {
         Double TTI = grossincome - (CPP() + EI() + rrsp());
         return TTI;
+    }
+
+    //Dunction for Total tax payed
+    public Double totaltaxPayed()
+    {
+        Double TTP = federalTax() + provincalTax();
+        return  TTP;
     }
 
 
