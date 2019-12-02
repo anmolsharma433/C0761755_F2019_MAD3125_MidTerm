@@ -50,7 +50,10 @@ public class MainActivity extends AppCompatActivity {
                 System.out.println(cra.Fullname());
                 System.out.println("Gross Income = " + cra.getGrossincome());
                 System.out.println("EI = " + cra.EI());
-                System.out.println("");
+                System.out.println("Federal tax = " + cra.FederalTax());
+                System.out.println("CPP = "+ cra.CPP());
+                System.out.println("Provincal tax = " + cra.provincalTax());
+
 
             }
         });

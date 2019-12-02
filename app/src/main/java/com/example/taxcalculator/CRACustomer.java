@@ -146,6 +146,13 @@ public class CRACustomer{
         }
     }
 
+    //Function for total taxable income
+    public Double totalTAxableIncome()
+    {
+        Double TTI = grossincome - (CPP() + EI() + rrsp());
+        return TTI;
+    }
+
 
 
 
