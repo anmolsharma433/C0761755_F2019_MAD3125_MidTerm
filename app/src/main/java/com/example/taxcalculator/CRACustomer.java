@@ -45,6 +45,10 @@ public class CRACustomer{
     }
 
     // Function for Employer insurance
+    public Double EI()
+    {
+
+    }
 
 
 
