@@ -30,6 +30,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //https://www.bragitoff.com/2017/03/how-to-hide-the-status-bar-solved-android-studio/
+        // Hide the status bar.
+        View decorView = getWindow().getDecorView();
+        int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
+        decorView.setSystemUiVisibility(uiOptions);
+
         fname = findViewById(R.id.etFname);
         lanme = findViewById(R.id.etLname);
         dob = findViewById(R.id.etDate);
