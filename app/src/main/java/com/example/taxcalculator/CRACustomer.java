@@ -3,6 +3,9 @@ package com.example.taxcalculator;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.text.NumberFormat;
+import java.util.Locale;
+
 public class CRACustomer{
     private String FirstName;
     private String LastName;
@@ -10,7 +13,6 @@ public class CRACustomer{
     private int Sin;
     private Double grossincome;
     private Double rrspContributed;
-    double totalTaxableAmount;
     double mrssp;
 
 
@@ -63,115 +65,6 @@ public class CRACustomer{
         }
     }
 
-    //Function for total taxable income
-    public Double totalTAxableIncome()
-    {
-        Double TTI = grossincome - (CPP() + EI() + mrssp);
-        totalTaxableAmount = TTI;
-        return TTI;
-    }
-
-    //Function for Federal tax
-    public Double federalTax()
-    {
-        Double FT;
-        double fedtax=0.0;
-
-        double firstSlabPerc = .15;
-        double firstSlab = 35561;
-
-        double secondSlabPerc = .2050;
-        double secondSlab = 47628.99;
-
-        double thirdSlabPerc = .0026;
-        double thirdSlab = 52407.99;
-
-        double fourthSlabPerc = .0029;
-        double fourthSlab = 60703.99;
-
-        double finalSlab = 0.01;
-        double finalSlabPerc = .0033;
-        totalTaxableAmount = totalTAxableIncome() -12069.00;
-        if(totalTaxableAmount <= firstSlab)
-        {
-            FT = firstSlab * 0.015;
-            totalTaxableAmount = totalTaxableAmount -firstSlab;
-            return Double.valueOf((String.format("%.0f",FT)));
-        }
-        else if(totalTaxableAmount <= secondSlab)
-        {
-            FT = secondSlab * .2050;
-            totalTaxableAmount = totalTaxableAmount - secondSlab;
-            return Double.valueOf((String.format("%.0f",FT)));
-        }
-        else if (totalTaxableAmount <= thirdSlab)
-        {
-            FT =  thirdSlab * .0026;
-            totalTaxableAmount = totalTaxableAmount - thirdSlab;
-            return Double.valueOf((String.format("%.0f",FT)));
-        }
-        else if (totalTaxableAmount <= fourthSlab)
-        {
-            FT = fourthSlab * .0029;
-            totalTaxableAmount = totalTaxableAmount - fourthSlab;
-            return Double.valueOf((String.format("%.0f",FT)));
-        }
-        else {
-            FT = finalSlab * .0033;
-            return Double.valueOf((String.format("%.0f",FT)));
-        }
-    }
-
-    // Function for Provincal tax
-    public Double provincalTax()
-    {
-        double ProvisionalTax = 0.0;
-
-        double firstSlabPerc=5.05;
-        double firstSlab=33324;
-
-        double secondSlabPerc=.0915;
-        double secondSlab=43907;
-
-        double thirdSlabPerc=11.16;
-        double thirdSlab=62187;
-
-        double fourthSlabPerc=12.16;
-        double fourthSlab=70000;
-
-        double finalSlab=0.01;
-        double finalSlabPerc=13.16;
-        totalTaxableAmount=totalTaxableAmount - 10582.00;
-        if(totalTaxableAmount <= firstSlab) {
-            ProvisionalTax = firstSlab  * .0505 ;
-            totalTaxableAmount = totalTaxableAmount - firstSlab;
-            return  ProvisionalTax;
-        }
-
-        else if(totalTaxableAmount <= secondSlab) {
-            System.out.println(totalTaxableAmount);
-            ProvisionalTax = secondSlab * .0915;
-            System.out.println(ProvisionalTax);
-            totalTaxableAmount = totalTaxableAmount - secondSlab;
-            return  ProvisionalTax;
-        }
-        else if(totalTaxableAmount <= thirdSlab) {
-            ProvisionalTax = thirdSlab * .1116;
-            totalTaxableAmount = totalTaxableAmount - thirdSlab;
-            return  ProvisionalTax;
-        }
-        else if(totalTaxableAmount <= fourthSlab) {
-            ProvisionalTax = fourthSlab * .1216;
-            totalTaxableAmount = totalTaxableAmount - fourthSlab;
-            return  ProvisionalTax;
-        }
-        else if(totalTaxableAmount <= finalSlab) {
-            ProvisionalTax = finalSlab * .1316;
-            return  ProvisionalTax;
-        }
-        return ProvisionalTax;
-    }
-
     //Function for RRSP
     public Double rrsp()
     {
@@ -190,12 +83,82 @@ public class CRACustomer{
 
     }
 
+    //Function for total taxable income
+    public Double totalTAxableIncome()
+    {
+        Double TTI = grossincome - (CPP() + EI() + mrssp);
+        //totalTaxableAmount = TTI;
+        return TTI;
+    }
+
+    //Function for Federal tax
+
+
+    // Function for Provincial tax
+    public double provincialTax(){
+        double tempTaxableIncome = totalTAxableIncome();
+        System.out.println(tempTaxableIncome);
+       double tax = 0.0;
+        if(tempTaxableIncome > 0.0 && tempTaxableIncome <= 10582.0)
+        {
+
+            tax = 0.0;
+        }
+        else if(tempTaxableIncome >= 10582.1 && tempTaxableIncome <= 43906.0)
+        {
+            tempTaxableIncome = tempTaxableIncome-10582;
+            tax = (tempTaxableIncome * 5.05)/100;
+        }
+        else if(tempTaxableIncome >= 43906.0 && tempTaxableIncome <= 87813.0)
+        {
+
+            tempTaxableIncome = tempTaxableIncome-43906;
+            double backtax = ((43906-10582)*5.05)/100;
+            double temptax = (tempTaxableIncome * 9.15)/100;
+            tax = backtax + temptax;
+        }
+        else if(tempTaxableIncome >= 87813.0 && tempTaxableIncome <= 150000.0)
+        {
+
+            tempTaxableIncome = tempTaxableIncome-87813.0;
+            double backtax = ((43906-10582)*5.05)/100;
+            double backtax2 = ((87813-43906)*9.15)/100;
+            double temptax = (tempTaxableIncome * 11.16)/100;
+
+            tax = backtax + backtax2 + temptax;
+        }
+        else if(tempTaxableIncome >= 150000.0 && tempTaxableIncome <= 220000.0)
+        {
+
+            tempTaxableIncome = tempTaxableIncome-150000.0;
+            double backtax = ((43906-10582)*5.05)/100;
+            double backtax2 = ((87813-43906)*9.15)/100;
+            double backtax3 = ((150000-87813)*11.16)/100;
+            double temptax = (tempTaxableIncome * 12.16)/100;
+
+            tax = backtax + backtax2 + backtax3 + temptax;
+        }
+        else if(tempTaxableIncome >= 220000.0)
+        {
+
+            tempTaxableIncome = tempTaxableIncome-220000;
+            double backtax = ((43906-10582)*5.05)/100;
+            double backtax2 = ((87813-43906)*9.15)/100;
+            double backtax3 = ((150000-87813)*11.16)/100;
+            double backtax4 = ((220000-150000)*12.16)/100;
+
+            double temptax = (tempTaxableIncome * 13.16)/100;
+
+            tax = backtax + backtax2 + backtax3 + backtax4 + temptax;
+        }
+        return tax;
+    }
 
 
     //Dunction for Total tax payed
     public Double totaltaxPayed()
     {
-        Double TTP = federalTax() + provincalTax();
+        Double TTP = provincialTax();
         return  TTP;
     }
 
@@ -244,5 +207,15 @@ public class CRACustomer{
 
     public void setRrspContributed(Double rrspContributed) {
         this.rrspContributed = rrspContributed;
+    }
+
+    //String formatter
+    public String amountFomatter()
+    {
+        NumberFormat nf = NumberFormat.getInstance(new Locale("en", "US"));
+        String val = nf.format("$"+this);
+
+        return val;
+
     }
 }
