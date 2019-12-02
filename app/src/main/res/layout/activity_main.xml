@@ -45,7 +45,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/etGender"
+            android:id="@+id/txtGender"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="45dp"
@@ -57,13 +57,13 @@
             app:layout_constraintTop_toBottomOf="@+id/txtGrossIncome" />
 
         <RadioGroup
-            android:id="@+id/radioGroup"
+            android:id="@+id/rbGroup"
             android:layout_width="133dp"
             android:layout_height="0dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="124dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etGrossIncome">
+            app:layout_constraintTop_toBottomOf="@+id/etGrossIncome">
 
             <RadioButton
                 android:id="@+id/rbMale"
@@ -216,11 +216,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
+            android:layout_marginTop="115dp"
             android:fontFamily="monospace"
             android:text="RRSP"
             android:textSize="20sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/etRrsp"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtGender" />
 
         <EditText
             android:id="@+id/etRrsp"
@@ -233,7 +234,7 @@
             android:hint="Enter Your RRSP"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+            app:layout_constraintTop_toBottomOf="@+id/rbGroup" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -27,10 +29,10 @@ public class MainActivity extends AppCompatActivity {
     private RadioButton female;
     private RadioButton other;
     private Button result;
+    private RadioGroup Gender;
     final Calendar calendar = Calendar.getInstance();
     //DatePickerDialog datePickerDialog;
 
-    //object od cra customer
 
 
 
@@ -38,15 +40,33 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         //https://www.bragitoff.com/2017/03/how-to-hide-the-status-bar-solved-android-studio/
         // Hide the status bar.
         View decorView = getWindow().getDecorView();
         int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
         decorView.setSystemUiVisibility(uiOptions);
 
+        // https://stackoverflow.com/questions/14933330/datepicker-how-to-popup-datepicker-when-click-on-edittext
+        final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear,
+                                  int dayOfMonth) {
+                calendar.set(Calendar.YEAR, year);
+                calendar.set(Calendar.MONTH, monthOfYear);
+                calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                dateFormat();
+            }
+        };
+        dob.setOnClickListener(new View.OnClickListener() {
 
-
-
+            @Override
+            public void onClick(View v) {
+                new DatePickerDialog(MainActivity.this, date, calendar
+                        .get(Calendar.YEAR), calendar.get(Calendar.MONTH),
+                        calendar.get(Calendar.DAY_OF_MONTH)).show();
+            }
+        });
 
         fname = findViewById(R.id.etFname);
         lanme = findViewById(R.id.etLname);
@@ -58,6 +78,19 @@ public class MainActivity extends AppCompatActivity {
         female = findViewById(R.id.rbFemale);
         other = findViewById(R.id.rbOther);
         result = findViewById(R.id.btnResult);
+        Gender = findViewById(R.id.rbGroup);
+        Gender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int i) {
+
+                if (male.isChecked())
+                    Toast.makeText(MainActivity.this, "You Chose Male", Toast.LENGTH_SHORT).show();
+                if (female.isChecked())
+                    Toast.makeText(MainActivity.this, "You Chose Female", Toast.LENGTH_SHORT).show();
+                if (other.isChecked())
+                    Toast.makeText(MainActivity.this, "You Chose Others", Toast.LENGTH_SHORT).show();
+            }
+        });
         //final CRACustomer cra = new CRACustomer(fname.getText().toString(),lanme.getText().toString());
         result.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,6 +117,14 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
+    private void dateFormat() {
+        String myFormat = "dd-MMM-yyyy";
+        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+
+        dob.setText(sdf.format(calendar.getTime()));
+
+
     }
 
 }
