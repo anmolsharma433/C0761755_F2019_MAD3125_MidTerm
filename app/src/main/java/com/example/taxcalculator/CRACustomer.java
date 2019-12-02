@@ -9,6 +9,7 @@ public class CRACustomer{
     private String FullName;
     private int Sin;
     private Double grossincome;
+    private Double rrspContributed;
     private Double rrsp;
 
     //Constructor
@@ -132,7 +133,17 @@ public class CRACustomer{
     //Function for RRSP
     public Double rrsp()
     {
-        if(grossincome >= )
+        Double maxrrsp = grossincome * .0018;
+        Double CFrrsp
+        if(rrspContributed >= maxrrsp)
+        {
+            Double RRSP = maxrrsp - rrspContributed;
+            return maxrrsp;
+        }
+        else {
+            return rrspContributed;
+        }
+
     }
 
 
