@@ -36,8 +36,7 @@ public class CRACustomer{
     {
         if (grossincome > 57400)
         {
-            Double applicablegrossincome = grossincome - 57400;
-            Double finalcpp = applicablegrossincome * 0.0510;
+            Double finalcpp = 57400 * 0.0510;
             return finalcpp;
         }
         else{
