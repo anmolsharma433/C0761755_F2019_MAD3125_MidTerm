@@ -18,7 +18,6 @@ public class DataDisplay extends AppCompatActivity {
     private EditText FederalTax;
     private EditText ProvincialTax;
     private EditText RRSP;
-    private EditText TotalTaxPlayed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +31,8 @@ public class DataDisplay extends AppCompatActivity {
        CPP = findViewById(R.id.etCPP);
        TotalTaxPayed = findViewById(R.id.etTaxPayed);
        TotalTaxableIncome = findViewById(R.id.etTotalTaxableIncome);
+       FederalTax = findViewById(R.id.etDFederaltax);
+       ProvincialTax =findViewById(R.id.etRrsp);
        CRACustomer dataAll = getIntent().getParcelableExtra("data");
        fullname.setText(dataAll.getFirstName());
 
