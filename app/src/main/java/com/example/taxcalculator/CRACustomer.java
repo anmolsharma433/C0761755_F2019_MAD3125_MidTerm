@@ -92,6 +92,65 @@ public class CRACustomer{
     }
 
     //Function for Federal tax
+    public  double federalTax()
+    {
+        Double tempTaxableIncome = totalTAxableIncome();
+        double tax = 0.0;
+        if(tempTaxableIncome > 0.0 && tempTaxableIncome <= 12069.0)
+        {
+
+            tax = 0.0;
+        }
+        else if(tempTaxableIncome >= 12069.0 && tempTaxableIncome <= 47630.0)
+        {
+            tempTaxableIncome = tempTaxableIncome-12069;
+            tax = (tempTaxableIncome * 15)/100;
+        }
+        else if(tempTaxableIncome >= 47630.1 && tempTaxableIncome <= 95259.0)
+        {
+
+            tempTaxableIncome = tempTaxableIncome-47630.0;
+            double backtax = ((47630.0-12069)*15)/100;
+            double temptax = (tempTaxableIncome * 20.50)/100;
+            tax = backtax + temptax;
+        }
+        else if(tempTaxableIncome >= 95259.1 && tempTaxableIncome <= 147667.0)
+        {
+
+            tempTaxableIncome = tempTaxableIncome-95259.0;
+            double backtax = ((47630.0-12069)*15)/100;
+            double backtax2 = ((95259.0 -47630.0)*20.50)/100;
+            double temptax = (tempTaxableIncome * 26)/100;
+
+            tax = backtax + backtax2 + temptax;
+        }
+        else if(tempTaxableIncome >= 147667.1 && tempTaxableIncome <= 210371.0)
+        {
+
+            tempTaxableIncome = tempTaxableIncome-144667.0;
+            double backtax = ((47630.0-12069)*15)/100;
+            double backtax2 = ((95259.0 -47630.0)*20.50)/100;
+            double backtax3 = ((147667.1-95259.0)*26)/100;
+            double temptax = (tempTaxableIncome * 29)/100;
+
+            tax = backtax + backtax2 + backtax3 + temptax;
+        }
+        else if(tempTaxableIncome >= 210372.01)
+        {
+
+            tempTaxableIncome = tempTaxableIncome-220000;
+            double backtax  = ((47630.0-12069)*15)/100;
+            double backtax2 = ((95259.0 -47630.0)*20.50)/100;
+            double backtax3 = ((147667.1-95259.0)*26)/100;
+            double backtax4 = ((210372.1-147667.1)*29)/100;
+
+            double temptax = (tempTaxableIncome * 33)/100;
+
+            tax = backtax + backtax2 + backtax3 + backtax4 + temptax;
+        }
+        return tax;
+    }
+
 
 
     // Function for Provincial tax

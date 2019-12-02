@@ -51,11 +51,11 @@ public class MainActivity extends AppCompatActivity {
                 System.out.println("Gross Income = " + cra.getGrossincome());
                 System.out.println("EI = " + cra.EI());
                 System.out.println(" rrsp = "+ cra.rrsp());
-                //System.out.println("Federal tax = " + cra.federalTax());
+
                 System.out.println("CPP = "+ cra.CPP());
                 System.out.println(" total taxaable income "+cra.totalTAxableIncome());
                 System.out.println("Provincal tax = " + cra.provincialTax());
-
+                System.out.println("Federal tax = " + cra.federalTax());
 
                 //System.out.println(" total tax payed "+cra.totaltaxPayed());
 
