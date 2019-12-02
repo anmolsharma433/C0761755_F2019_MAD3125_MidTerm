@@ -53,6 +53,10 @@ public class MainActivity extends AppCompatActivity {
                 System.out.println("Federal tax = " + cra.federalTax());
                 System.out.println("CPP = "+ cra.CPP());
                 System.out.println("Provincal tax = " + cra.provincalTax());
+                System.out.println(" rrsp = "+ cra.rrsp());
+                System.out.println(" total taxaable income "+cra.totalTAxableIncome());
+                System.out.println(" total tax payed "+cra.totaltaxPayed());
+
 
 
             }

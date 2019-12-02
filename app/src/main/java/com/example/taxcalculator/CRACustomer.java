@@ -10,6 +10,9 @@ public class CRACustomer{
     private int Sin;
     private Double grossincome;
     private Double rrspContributed;
+    double totalTaxableAmount;
+    double mrssp;
+
 
     public CRACustomer(String firstName, String lastName, Double grossincome, Double rrspContributed) {
         this.FirstName = firstName;
@@ -60,96 +63,134 @@ public class CRACustomer{
         }
     }
 
+    //Function for total taxable income
+    public Double totalTAxableIncome()
+    {
+        Double TTI = grossincome - (CPP() + EI() + mrssp);
+        totalTaxableAmount = TTI;
+        return TTI;
+    }
+
     //Function for Federal tax
     public Double federalTax()
     {
         Double FT;
-        if(grossincome <= 12069)
+        double fedtax=0.0;
+
+        double firstSlabPerc = .15;
+        double firstSlab = 35561;
+
+        double secondSlabPerc = .2050;
+        double secondSlab = 47628.99;
+
+        double thirdSlabPerc = .0026;
+        double thirdSlab = 52407.99;
+
+        double fourthSlabPerc = .0029;
+        double fourthSlab = 60703.99;
+
+        double finalSlab = 0.01;
+        double finalSlabPerc = .0033;
+        totalTaxableAmount = totalTAxableIncome() -12069.00;
+        if(totalTaxableAmount <= firstSlab)
         {
-            return 0.0;
+            FT = firstSlab * 0.015;
+            totalTaxableAmount = totalTaxableAmount -firstSlab;
+            return Double.valueOf((String.format("%.0f",FT)));
         }
-        else if(grossincome <= 47630)
+        else if(totalTaxableAmount <= secondSlab)
         {
-            FT = grossincome * 0.015;
-            return FT;
+            FT = secondSlab * .2050;
+            totalTaxableAmount = totalTaxableAmount - secondSlab;
+            return Double.valueOf((String.format("%.0f",FT)));
         }
-        else if(grossincome <= 95259)
+        else if (totalTaxableAmount <= thirdSlab)
         {
-            FT = grossincome * .2050;
-            return FT;
+            FT =  thirdSlab * .0026;
+            totalTaxableAmount = totalTaxableAmount - thirdSlab;
+            return Double.valueOf((String.format("%.0f",FT)));
         }
-        else if (grossincome <= 147667)
+        else if (totalTaxableAmount <= fourthSlab)
         {
-            FT = grossincome * .0026;
-            return FT;
-        }
-        else if (grossincome <= 210371)
-        {
-            FT = grossincome * .0029;
-            return FT;
+            FT = fourthSlab * .0029;
+            totalTaxableAmount = totalTaxableAmount - fourthSlab;
+            return Double.valueOf((String.format("%.0f",FT)));
         }
         else {
-            FT = grossincome * .0033;
-            return FT;
+            FT = finalSlab * .0033;
+            return Double.valueOf((String.format("%.0f",FT)));
         }
     }
 
     // Function for Provincal tax
     public Double provincalTax()
     {
-        Double PT;
-        if(grossincome <= 10582)
-        {
-            return 0.0;
+        double ProvisionalTax = 0.0;
+
+        double firstSlabPerc=5.05;
+        double firstSlab=33324;
+
+        double secondSlabPerc=.0915;
+        double secondSlab=43907;
+
+        double thirdSlabPerc=11.16;
+        double thirdSlab=62187;
+
+        double fourthSlabPerc=12.16;
+        double fourthSlab=70000;
+
+        double finalSlab=0.01;
+        double finalSlabPerc=13.16;
+        totalTaxableAmount=totalTaxableAmount - 10582.00;
+        if(totalTaxableAmount <= firstSlab) {
+            ProvisionalTax = firstSlab  * .0505 ;
+            totalTaxableAmount = totalTaxableAmount - firstSlab;
+            return  ProvisionalTax;
         }
-        else if(grossincome <= 43906)
-        {
-            PT = grossincome * .0505;
-            return PT;
+
+        else if(totalTaxableAmount <= secondSlab) {
+            System.out.println(totalTaxableAmount);
+            ProvisionalTax = secondSlab * .0915;
+            System.out.println(ProvisionalTax);
+            totalTaxableAmount = totalTaxableAmount - secondSlab;
+            return  ProvisionalTax;
         }
-        else if(grossincome <= 87813)
-        {
-            PT = grossincome * .0915;
-            return PT;
+        else if(totalTaxableAmount <= thirdSlab) {
+            ProvisionalTax = thirdSlab * .1116;
+            totalTaxableAmount = totalTaxableAmount - thirdSlab;
+            return  ProvisionalTax;
         }
-        else if (grossincome <= 150000)
-        {
-            PT = grossincome * .1116;
-            return PT;
+        else if(totalTaxableAmount <= fourthSlab) {
+            ProvisionalTax = fourthSlab * .1216;
+            totalTaxableAmount = totalTaxableAmount - fourthSlab;
+            return  ProvisionalTax;
         }
-        else if (grossincome <= 220000)
-        {
-            PT = grossincome * .1216;
-            return PT;
+        else if(totalTaxableAmount <= finalSlab) {
+            ProvisionalTax = finalSlab * .1316;
+            return  ProvisionalTax;
         }
-        else {
-            PT = grossincome * .1316;
-            return PT;
-        }
+        return ProvisionalTax;
     }
 
     //Function for RRSP
     public Double rrsp()
     {
-        Double maxrrsp = grossincome * .0018;
+        Double maxrrsp = grossincome * .18;
+        mrssp = maxrrsp;
         Double CFrrsp;
-        if(rrspContributed >= maxrrsp)
+        if( rrspContributed > maxrrsp)
         {
-            Double RRSP = maxrrsp - rrspContributed;
-            CFrrsp = RRSP;
-            return maxrrsp;
+            CFrrsp = maxrrsp - rrspContributed;
+            System.out.println("WArning rrsp limit reached" + maxrrsp);
+            return  CFrrsp;
         }
         else {
             return rrspContributed;
         }
+
     }
 
-    //Function for total taxable income
-    public Double totalTAxableIncome()
-    {
-        Double TTI = grossincome - (CPP() + EI() + rrsp());
-        return TTI;
-    }
+
 
     //Dunction for Total tax payed
     public Double totaltaxPayed()
