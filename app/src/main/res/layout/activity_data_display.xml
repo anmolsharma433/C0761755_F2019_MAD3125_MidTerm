@@ -37,8 +37,8 @@
 
     <EditText
         android:id="@+id/etDsin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="230dp"
+        android:layout_height="50dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
         android:ems="10"
@@ -70,8 +70,8 @@
 
     <EditText
         android:id="@+id/etage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="230dp"
+        android:layout_height="50dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
         android:editable="false"
@@ -82,8 +82,8 @@
 
     <EditText
         android:id="@+id/etDGrossIncome"
-        android:layout_width="209dp"
-        android:layout_height="32dp"
+        android:layout_width="230dp"
+        android:layout_height="50dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
         android:ems="10"
@@ -104,8 +104,8 @@
 
     <EditText
         android:id="@+id/etDFederaltax"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="230dp"
+        android:layout_height="50dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
         android:ems="10"
@@ -137,8 +137,8 @@
 
     <EditText
         android:id="@+id/etProvincalTax"
-        android:layout_width="209dp"
-        android:layout_height="37dp"
+        android:layout_width="230dp"
+        android:layout_height="50dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
         android:ems="10"
@@ -163,8 +163,8 @@
 
     <EditText
         android:id="@+id/etEI"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="230dp"
+        android:layout_height="50dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
         android:ems="10"
@@ -185,8 +185,8 @@
 
     <EditText
         android:id="@+id/etCPP"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="230dp"
+        android:layout_height="50dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
         android:ems="10"
@@ -210,15 +210,15 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:fontFamily="monospace"
-        android:text="Total Taxable Income"
-        android:textSize="15sp"
+        android:text="Taxable Income"
+        android:textSize="18sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/etTotalTaxableIncome"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/etTotalTaxableIncome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="230dp"
+        android:layout_height="50dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
         android:ems="10"
@@ -233,13 +233,13 @@
         android:layout_marginStart="52dp"
         android:text="RRSP"
         android:textSize="20sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/editText11"
+        app:layout_constraintBaseline_toBaselineOf="@+id/etDRrsp"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/editText11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/etDRrsp"
+        android:layout_width="230dp"
+        android:layout_height="50dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
         android:ems="10"
@@ -259,14 +259,16 @@
 
     <EditText
         android:id="@+id/etTaxPayed"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="230dp"
+        android:layout_height="50dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
         android:ems="10"
         android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText11" />
+        app:layout_constraintTop_toBottomOf="@+id/etDRrsp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

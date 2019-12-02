@@ -24,17 +24,30 @@ public class DataDisplay extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data_display);
        fullname = findViewById(R.id.etFullname);
-       Age =findViewById(R.id.etDate);
-       SIN = findViewById(R.id.etSin);
-       GrossIncome = findViewById(R.id.etGrossIncome);
+      // Age =findViewById(R.id.etDate);
+       SIN = findViewById(R.id.etDsin);
+       GrossIncome = findViewById(R.id.etDGrossIncome);
        EI = findViewById(R.id.etEI);
        CPP = findViewById(R.id.etCPP);
        TotalTaxPayed = findViewById(R.id.etTaxPayed);
        TotalTaxableIncome = findViewById(R.id.etTotalTaxableIncome);
        FederalTax = findViewById(R.id.etDFederaltax);
-       ProvincialTax =findViewById(R.id.etRrsp);
+       ProvincialTax =findViewById(R.id.etProvincalTax);
+       RRSP = findViewById(R.id.etDRrsp);
+       //getting the parceable
        CRACustomer dataAll = getIntent().getParcelableExtra("data");
-       fullname.setText(dataAll.getFirstName());
+
+       //assigning the value
+       fullname.setText(dataAll.Fullname());
+       SIN.setText(String.valueOf(dataAll.getSin()));
+       GrossIncome.setText(String.valueOf(dataAll.getGrossincome()));
+        EI.setText(String.valueOf(dataAll.EI()));
+        CPP.setText(String.valueOf(dataAll.CPP()));
+        RRSP.setText(String.valueOf(dataAll.rrsp()));
+        TotalTaxPayed.setText(String.valueOf(dataAll.totalTAxableIncome()));
+        FederalTax.setText(String.valueOf(dataAll.federalTax()));
+        ProvincialTax.setText(String.valueOf(dataAll.provincialTax()));
+
 
 
 
