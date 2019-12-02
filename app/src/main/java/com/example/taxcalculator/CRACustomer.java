@@ -95,6 +95,40 @@ public class CRACustomer{
         }
     }
 
+    // Function for Provincal tax
+    public Double provincalTax()
+    {
+        Double PT;
+        if(grossincome <= 10582)
+        {
+            return 0.0;
+        }
+        else if(grossincome <= 43906)
+        {
+            PT = grossincome * .0505;
+            return PT;
+        }
+        else if(grossincome <= 87813)
+        {
+            PT = grossincome * .0915;
+            return PT;
+        }
+        else if (grossincome <= 150000)
+        {
+            PT = grossincome * .1116;
+            return PT;
+        }
+        else if (grossincome <= 220000)
+        {
+            PT = grossincome * .1216;
+            return PT;
+        }
+        else {
+            PT = grossincome * .1316;
+            return PT;
+        }
+    }
+
 
 
 
