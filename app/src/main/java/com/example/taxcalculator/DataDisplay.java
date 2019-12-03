@@ -3,21 +3,24 @@ package com.example.taxcalculator;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.method.SingleLineTransformationMethod;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class DataDisplay extends AppCompatActivity {
 
-    private EditText fullname;
-    private EditText Age;
-    private EditText SIN;
-    private EditText GrossIncome;
-    private EditText EI;
-    private EditText CPP;
-    private EditText TotalTaxPayed;
-    private EditText TotalTaxableIncome;
-    private EditText FederalTax;
-    private EditText ProvincialTax;
-    private EditText RRSP;
+    private TextView fullname;
+    private TextView Age;
+    private TextView SIN;
+    private TextView GrossIncome;
+    private TextView EI;
+    private TextView CPP;
+    private TextView TotalTaxPayed;
+    private TextView TotalTaxableIncome;
+    private TextView FederalTax;
+    private TextView ProvincialTax;
+    private TextView RRSP;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +39,7 @@ public class DataDisplay extends AppCompatActivity {
        RRSP = findViewById(R.id.etDRrsp);
        //getting the parceable
        CRACustomer dataAll = getIntent().getParcelableExtra("data");
+
 
        //assigning the value
        fullname.setText(dataAll.Fullname());

@@ -143,7 +143,6 @@
             android:ems="10"
             android:fontFamily="monospace"
             android:hint="Enter Your FirstName"
-            android:inputType="textPersonName"
             android:textAlignment="viewStart"
             android:textColor="#EB0F0F0F"
             app:layout_constraintEnd_toEndOf="parent"

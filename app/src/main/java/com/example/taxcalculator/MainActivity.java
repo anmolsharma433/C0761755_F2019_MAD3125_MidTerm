@@ -13,8 +13,10 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
@@ -91,24 +93,15 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "You Chose Others", Toast.LENGTH_SHORT).show();
             }
         });
-        //final CRACustomer cra = new CRACustomer(fname.getText().toString(),lanme.getText().toString());
+
+        //Result Button
         result.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Double Dgrossincome = Double.parseDouble(grossincome.getText().toString());
                 Double Drssp = Double.parseDouble(crrsp.getText().toString());
+
                 CRACustomer cra = new CRACustomer(fname.getText().toString(),lanme.getText().toString(),Dgrossincome,Drssp);
-                System.out.println(cra.Fullname());
-                System.out.println("Gross Income = " + cra.getGrossincome());
-                System.out.println("EI = " + cra.EI());
-                System.out.println(" rrsp = "+ cra.rrsp());
-
-                System.out.println("CPP = "+ cra.CPP());
-                System.out.println(" total taxaable income "+cra.totalTAxableIncome());
-                System.out.println("Provincal tax = " + cra.provincialTax());
-                System.out.println("Federal tax = " + cra.federalTax());
-
-                System.out.println(" total tax payed "+cra.totaltaxPayed());
                 Intent intent = new Intent(MainActivity.this,DataDisplay.class);
                 intent.putExtra("data",cra);
                 startActivity(intent);
@@ -119,12 +112,15 @@ public class MainActivity extends AppCompatActivity {
         });
     }
     private void dateFormat() {
-        String myFormat = "dd-MMM-yyyy";
+        String myFormat = "dd/MMM/yyyy";
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
 
+        //getAge(sdf.format(calendar.getTime()));
         dob.setText(sdf.format(calendar.getTime()));
-
+        return;
 
     }
+
+
 
 }
