@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        dob = findViewById(R.id.etDate);
 
         //https://www.bragitoff.com/2017/03/how-to-hide-the-status-bar-solved-android-studio/
         // Hide the status bar.
@@ -70,7 +71,6 @@ public class MainActivity extends AppCompatActivity {
 
         fname = findViewById(R.id.etFname);
         lanme = findViewById(R.id.etLname);
-        dob = findViewById(R.id.etDate);
         sin = findViewById(R.id.etSin);
         grossincome = findViewById(R.id.etGrossIncome);
         crrsp = findViewById(R.id.etRrsp);
